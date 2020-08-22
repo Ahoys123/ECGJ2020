@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="ECGJ"
-run/main_scene="res://Scenes/Test.tscn"
+run/main_scene="res://GameRoot.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -28,11 +28,14 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
+window/size/width=320
+window/size/height=180
 window/size/resizable=false
 window/size/fullscreen=true
+window/size/test_width=1280
+window/size/test_height=720
 window/stretch/mode="2d"
+window/stretch/aspect="keep"
 
 [editor_plugins]
 
