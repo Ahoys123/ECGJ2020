@@ -3,17 +3,19 @@
 [node name="Inventory" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 128.0
-margin_top = 450.0
-margin_right = -128.0
-margin_bottom = -75.0
+margin_left = 64.0
+margin_top = 270.0
+margin_right = -64.0
+margin_bottom = -32.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Button" type="Button" parent="."]
-margin_right = 12.0
-margin_bottom = 20.0
+margin_left = 8.42622
+margin_top = 5.11591
+margin_right = 20.4262
+margin_bottom = 25.1159
 __meta__ = {
 "_edit_use_anchors_": false
 }

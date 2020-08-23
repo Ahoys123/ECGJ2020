@@ -26,6 +26,11 @@ IconLoaderGithub="*res://addons/github-integration/scripts/IconLoaderGithub.gd"
 RestHandler="*res://addons/github-integration/scenes/RestHandler.tscn"
 UserData="*res://addons/github-integration/scripts/user_data.gd"
 
+[default]
+
+background=Color( 0, 0, 0, 1 )
+default=Color( 0, 0, 0, 1 )
+
 [display]
 
 window/size/width=640
@@ -85,4 +90,5 @@ ui_down={
 
 [rendering]
 
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"
