@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OldBrownFloor.png-b46b8ada03727101f764099b11830e67.stex"
+path="res://.import/chekerfloor_1.png-d79a314ed191f09c853a0500dc3b3821.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/OldBrownFloor.png"
-dest_files=[ "res://.import/OldBrownFloor.png-b46b8ada03727101f764099b11830e67.stex" ]
+source_file="res://Sprites/Tiles/chekerfloor_1.png"
+dest_files=[ "res://.import/chekerfloor_1.png-d79a314ed191f09c853a0500dc3b3821.stex" ]
 
 [params]
 

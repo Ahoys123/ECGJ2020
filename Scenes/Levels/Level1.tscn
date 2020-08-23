@@ -6,9 +6,9 @@
 [ext_resource path="res://Prefabs/Colliding/Collidable.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Prefabs/Colliding/Signalbox.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Prefabs/Colliding/Hitbox.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Sprites/Tiles/chekerfloor.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/Tiles/chekerfloor_1.png" type="Texture" id=7]
 [ext_resource path="res://Sprites/Tiles/GrandfatherClock.png" type="Texture" id=8]
-[ext_resource path="res://Sprites/Tiles/OldBrownFloor.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/Tiles/OldBrownFloor_2.png" type="Texture" id=9]
 [ext_resource path="res://Sprites/Tiles/PrettyGrass.png" type="Texture" id=10]
 [ext_resource path="res://Sprites/Tiles/torch.png" type="Texture" id=12]
 [ext_resource path="res://Sprites/Tiles/WallOutlines.png" type="Texture" id=13]
@@ -487,7 +487,6 @@ __meta__ = {
 
 [node name="OldBrownFloor" type="Sprite" parent="."]
 position = Vector2( 2256.34, 1622.12 )
-scale = Vector2( 0.977776, 0.923805 )
 texture = ExtResource( 9 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 1000, 1000 )
