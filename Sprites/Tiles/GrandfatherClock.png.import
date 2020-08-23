@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OldBrownFloor.png-b46b8ada03727101f764099b11830e67.stex"
+path="res://.import/GrandfatherClock.png-a3391ac97e53fc45e66674546a3d4870.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/OldBrownFloor.png"
-dest_files=[ "res://.import/OldBrownFloor.png-b46b8ada03727101f764099b11830e67.stex" ]
+source_file="res://Sprites/Tiles/GrandfatherClock.png"
+dest_files=[ "res://.import/GrandfatherClock.png-a3391ac97e53fc45e66674546a3d4870.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
