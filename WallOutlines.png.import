@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/OldBrownFloor.png-fc194782f597d93a9e030f7a540dbf33.stex"
+path="res://.import/WallOutlines.png-88cf233f6b313e6ed921c012bf7969ed.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://OldBrownFloor.png"
-dest_files=[ "res://.import/OldBrownFloor.png-fc194782f597d93a9e030f7a540dbf33.stex" ]
+source_file="res://WallOutlines.png"
+dest_files=[ "res://.import/WallOutlines.png-88cf233f6b313e6ed921c012bf7969ed.stex" ]
 
 [params]
 
@@ -19,7 +19,7 @@ compress/lossy_quality=0.7
 compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
-flags/repeat=1
+flags/repeat=0
 flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false

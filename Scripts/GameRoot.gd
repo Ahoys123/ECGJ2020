@@ -59,7 +59,22 @@ func load_level(type:String ,name:String):
 	root.add_child(lvl)
 	return true
 	
+func connect_on_load():
+	# Call this When a level loads 
+	# 	All levels will need to implement a funciton that returns a list/array/dictionary/data structure
+	#	containing all signals the Game Root will need to connect to
+	#
+	#	This function will call the function in levels, take that list, and connect each function to a function in GameRoot
+	#	so that, on signal, the funciton will trigger.
+	#
+	#	This way, we will follow a Call Down, Signal Up pattern that Godot is designed around.
+	#
+	return
+
+
 #ToDo - Alter function to take into account load states
 func on_init_game():
 	print ("signal to start game received")
 	load_level("Level","Level1")
+	
+

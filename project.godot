@@ -28,7 +28,7 @@ UserData="*res://addons/github-integration/scripts/user_data.gd"
 
 [default]
 
-background=Color( 0, 0, 0, 1 )
+background=Color( 0, 0, 0, 0 )
 default=Color( 0, 0, 0, 1 )
 
 [display]
