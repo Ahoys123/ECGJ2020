@@ -41,3 +41,7 @@ func move_state(delta, input_vector):
 	
 func move():
 	velocity = move_and_slide(velocity)
+
+
+func _on_Hurtbox_area_entered(area):
+	print("Hi!")

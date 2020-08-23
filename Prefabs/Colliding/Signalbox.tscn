@@ -1,0 +1,7 @@
+[gd_scene format=2]
+
+[node name="Signalbox" type="Area2D"]
+collision_layer = 0
+collision_mask = 4
+
+[node name="SignalboxShape" type="CollisionShape2D" parent="."]
