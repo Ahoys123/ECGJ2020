@@ -3,7 +3,7 @@
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Prefabs/Colliding/Hurtbox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Sprites/LightMask.png" type="Texture" id=3]
-[ext_resource path="res://Sprites/Temp/PlayerTemp.png" type="Texture" id=4]
+[ext_resource path="res://SamMan.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 16.0
@@ -17,12 +17,19 @@ collision_mask = 2
 script = ExtResource( 1 )
 
 [node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 0.52972, -9.53674e-07 )
+scale = Vector2( 1.87185, 1.52973 )
 texture = ExtResource( 3 )
 texture_scale = 0.75
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0
+position = Vector2( 4.76761, -0.529726 )
+scale = Vector2( 0.219198, 0.169536 )
 texture = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="BodyShape" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 16 )
