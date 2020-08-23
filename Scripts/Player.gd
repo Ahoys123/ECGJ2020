@@ -44,4 +44,4 @@ func move():
 
 
 func _on_Hurtbox_area_entered(area):
-	print("Hi!")
+	print("Ouch!")
