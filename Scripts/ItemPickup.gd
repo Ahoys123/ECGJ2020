@@ -5,6 +5,7 @@ var followNumb = 0
 var offsetMultiplier = 20
 var followNode = null
 export var hasLightsource = true
+export var asset_name = ""
 
 func _ready():
 	if !hasLightsource:

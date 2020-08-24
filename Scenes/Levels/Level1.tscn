@@ -1391,7 +1391,7 @@ position = Vector2( 2157.87, 308.841 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 2308.79, 310.922 )
 
-[node name="StarSaphire" parent="Pickupables/Heirlooms" groups=[
+[node name="StarSaphire_Pickup" parent="Pickupables/Heirlooms" groups=[
 "heirloom",
 ] instance=ExtResource( 15 )]
 position = Vector2( 2236.48, 426.631 )
@@ -1517,7 +1517,7 @@ texture = ExtResource( 16 )
 
 [editable path="Pickupables/Heirlooms/StolenValor_Pickup"]
 
-[editable path="Pickupables/Heirlooms/StarSaphire"]
+[editable path="Pickupables/Heirlooms/StarSaphire_Pickup"]
 
 [editable path="Pickupables/Keys/IronKey_Pickup"]
 
