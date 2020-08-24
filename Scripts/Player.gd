@@ -8,7 +8,7 @@ export var FRICTION = 1000
 var inventory = []
 var item = null
 signal interaction (success)
-signal itemOffset (total)
+signal invComm (id, action)
 
 
 enum {
@@ -48,14 +48,21 @@ func _process(delta):
 				x.erase("idle_process")
 				print(x)
 				inventory.append(x[0])
+				
+				emit_signal("invComm", inventory.size() + 1, "add")
+				
 				print("added" + x[0])
 			elif i.is_in_group("interact"):
 				var x = i.get_groups()
 				x.erase("interact")
 				x.erase("idle_process")
 				if x[0] in inventory:
-					inventory.erase(x[0])
 					print("removed " + x[0])
+					var y = inventory.find(x[0])
+					inventory.remove(y)
+					
+					emit_signal("invComm", y + 1, "sub")
+					
 					emit_signal("interaction", true)
 				else:
 					print("cannot remove; not in inventory!")
@@ -78,3 +85,6 @@ func move():
 
 func _on_Hurtbox_area_entered(area):
 	print("Ouch!")
+
+func get_new_id():
+	return inventory.size()
