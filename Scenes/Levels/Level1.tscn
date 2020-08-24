@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=2]
+[gd_scene load_steps=117 format=2]
 
 [ext_resource path="res://Sounds/Music/RainstormClean.wav" type="AudioStream" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Sprites/Temp/whiteImage.png" type="Texture" id=14]
 [ext_resource path="res://Prefabs/ItemPickup.tscn" type="PackedScene" id=15]
 [ext_resource path="res://Sprites/LightMask.png" type="Texture" id=16]
+[ext_resource path="res://Scripts/Pickupables.gd" type="Script" id=17]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -1282,6 +1283,7 @@ tile_data = PoolIntArray( 65579, 11, 0, 65580, 11, 0, 65581, 11, 0, 65582, 11, 0
 [node name="SceneDressing" type="Node" parent="."]
 
 [node name="Pickupables" type="Node" parent="."]
+script = ExtResource( 17 )
 
 [node name="Books" type="Node" parent="Pickupables"]
 
@@ -1295,20 +1297,32 @@ position = Vector2( 2397.74, 1617.15 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 2533.83, 1618.28 )
 
+[node name="Sprite" parent="Pickupables/Books/Skull_Book_Pickup" index="1"]
+frame = 36
+
 [node name="Leather_Journal_Pickup" parent="Pickupables/Books" groups=[
 "book",
 ] instance=ExtResource( 15 )]
 position = Vector2( 2646.03, 1763.42 )
+
+[node name="Sprite" parent="Pickupables/Books/Leather_Journal_Pickup" index="1"]
+frame = 51
 
 [node name="Cookbook_Pickup" parent="Pickupables/Books" groups=[
 "book",
 ] instance=ExtResource( 15 )]
 position = Vector2( 2483.16, 1763.28 )
 
+[node name="Sprite" parent="Pickupables/Books/Cookbook_Pickup" index="1"]
+frame = 53
+
 [node name="History_Book_Pickup" parent="Pickupables/Books" groups=[
 "book",
 ] instance=ExtResource( 15 )]
-position = Vector2( 2678.6, 1628.91 )
+position = Vector2( 2679.07, 1627.02 )
+
+[node name="Sprite" parent="Pickupables/Books/History_Book_Pickup" index="1"]
+frame = 35
 
 [node name="TorchParts" type="Node" parent="Pickupables"]
 
@@ -1317,20 +1331,32 @@ position = Vector2( 2678.6, 1628.91 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 1516.86, 1438.84 )
 
+[node name="Sprite" parent="Pickupables/TorchParts/Log_Pickup" index="1"]
+frame = 17
+
 [node name="TorchBody_Pickup" parent="Pickupables/TorchParts" groups=[
 "torch",
 ] instance=ExtResource( 15 )]
 position = Vector2( 1367.46, 1442.53 )
+
+[node name="Sprite" parent="Pickupables/TorchParts/TorchBody_Pickup" index="1"]
+frame = 16
 
 [node name="Coal_Pickup" parent="Pickupables/TorchParts" groups=[
 "torch",
 ] instance=ExtResource( 15 )]
 position = Vector2( 1445.06, 1559.67 )
 
+[node name="Sprite" parent="Pickupables/TorchParts/Coal_Pickup" index="1"]
+frame = 48
+
 [node name="Flint_Pickup" parent="Pickupables/TorchParts" groups=[
 "torch",
 ] instance=ExtResource( 15 )]
 position = Vector2( 1589.28, 1568.72 )
+
+[node name="Sprite" parent="Pickupables/TorchParts/Flint_Pickup" index="1"]
+frame = 18
 
 [node name="Heirlooms" type="Node" parent="Pickupables"]
 
@@ -1339,10 +1365,16 @@ position = Vector2( 1589.28, 1568.72 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 2377.58, 188.775 )
 
+[node name="Sprite" parent="Pickupables/Heirlooms/Will_Pickup" index="1"]
+frame = 33
+
 [node name="WeddingBand_Pickup" parent="Pickupables/Heirlooms" groups=[
 "heirloom",
 ] instance=ExtResource( 15 )]
 position = Vector2( 2233.6, 188.361 )
+
+[node name="Sprite" parent="Pickupables/Heirlooms/WeddingBand_Pickup" index="1"]
+frame = 137
 
 [node name="Mystery_Pickup" parent="Pickupables/Heirlooms" groups=[
 "heirloom",
@@ -1378,7 +1410,13 @@ position = Vector2( 1870.52, 579.845 )
 
 [node name="Other" type="Node" parent="Pickupables"]
 
-[node name="ItemPickup" parent="Pickupables/Other" instance=ExtResource( 15 )]
+[node name="Knife_Pickup" parent="Pickupables/Other" groups=[
+"knife",
+] instance=ExtResource( 15 )]
+position = Vector2( 2405.33, 796.01 )
+
+[node name="Sprite" parent="Pickupables/Other/Knife_Pickup" index="1"]
+frame = 3
 
 [node name="ItemPickup2" parent="Pickupables/Other" instance=ExtResource( 15 )]
 
@@ -1450,6 +1488,46 @@ position = Vector2( 2539.37, 1169.14 )
 
 [node name="Sprite" parent="BookGiver2" index="1"]
 texture = ExtResource( 16 )
+
+[editable path="Pickupables/Books/Sun_Book_Pickup"]
+
+[editable path="Pickupables/Books/Skull_Book_Pickup"]
+
+[editable path="Pickupables/Books/Leather_Journal_Pickup"]
+
+[editable path="Pickupables/Books/Cookbook_Pickup"]
+
+[editable path="Pickupables/Books/History_Book_Pickup"]
+
+[editable path="Pickupables/TorchParts/Log_Pickup"]
+
+[editable path="Pickupables/TorchParts/TorchBody_Pickup"]
+
+[editable path="Pickupables/TorchParts/Coal_Pickup"]
+
+[editable path="Pickupables/TorchParts/Flint_Pickup"]
+
+[editable path="Pickupables/Heirlooms/Will_Pickup"]
+
+[editable path="Pickupables/Heirlooms/WeddingBand_Pickup"]
+
+[editable path="Pickupables/Heirlooms/Mystery_Pickup"]
+
+[editable path="Pickupables/Heirlooms/LostMedicine_Pickup"]
+
+[editable path="Pickupables/Heirlooms/StolenValor_Pickup"]
+
+[editable path="Pickupables/Heirlooms/StarSaphire"]
+
+[editable path="Pickupables/Keys/IronKey_Pickup"]
+
+[editable path="Pickupables/Keys/BrassKey_Pickup"]
+
+[editable path="Pickupables/Other/Knife_Pickup"]
+
+[editable path="Pickupables/Other/ItemPickup2"]
+
+[editable path="Pickupables/Other/ItemPickup3"]
 
 [editable path="Test"]
 
