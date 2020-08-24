@@ -10,6 +10,10 @@ var item = null
 signal interaction (success)
 signal invComm (id, action)
 
+var assigned = 0
+
+var validItems = ["book", "torch", "heirloom", "key"]
+
 
 enum {
 	MOVE
@@ -51,29 +55,28 @@ func _process(delta):
 		for i in overlap:
 			if i.is_in_group("item"):
 				var x = i.get_groups()
-				x.erase("item")
-				x.erase("idle_process")
-				print(x)
-				inventory.append(x[0])
-				
-				emit_signal("invComm", inventory.size() + 1, "add")
-				
-				print("added" + x[0])
+				for j in x:
+					if j in validItems:
+						inventory.append(j)
+						emit_signal("invComm", inventory.size(), "add")
+						print("added " + j)
 			elif i.is_in_group("interact"):
 				var x = i.get_groups()
-				x.erase("interact")
-				x.erase("idle_process")
-				if x[0] in inventory:
-					print("removed " + x[0])
-					var y = inventory.find(x[0])
-					inventory.remove(y)
+				for j in x:
+					if j in validItems:
+						if j in inventory:
+							print("removed " + j)
+							var y = inventory.find(j)
+							inventory.remove(y)
 					
-					emit_signal("invComm", y + 1, "sub")
+							assigned -= 1
+							emit_signal("invComm", y + 1, "sub")
 					
-					emit_signal("interaction", true)
-				else:
-					print("cannot remove; not in inventory!")
+							emit_signal("interaction", true)
+						else:
+							print("cannot remove; not in inventory!")
 					emit_signal("interaction", false)
+			print(inventory)
 	elif overlap.size() == 0 && Input.is_action_just_pressed("ui_accept"):
 		print("nothing to interact with!")
 		# do something here if you want something to happen when button pressed but no action can be performed
@@ -97,4 +100,7 @@ func _on_Hurtbox_area_entered(area):
 	print("Ouch!")
 
 func get_new_id():
-	return inventory.size()
+	print(inventory.size())
+	print("hi" + str(inventory))
+	assigned += 1
+	return assigned

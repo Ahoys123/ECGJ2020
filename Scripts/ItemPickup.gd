@@ -28,11 +28,7 @@ func _process(delta):
 		
 func onInvComm(id, action):
 	print(id, action, followNumb)
-	if action == "add" && followNumb == 0:
-		followNumb = id
-	elif action == "add":
-		pass
-	elif action == "sub" && followNumb == id:
+	if action == "sub" && followNumb == id:
 		queue_free()
 	elif action == "sub" && followNumb > id:
 		followNumb -= 1
