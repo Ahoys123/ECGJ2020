@@ -5,6 +5,10 @@ export var MAX_SPEED = 250
 #export var ROLL_SPEED = 120 #if we decide to use rolling, this dictates roll speed
 export var FRICTION = 1000
 
+var inventory = []
+var item = null
+
+
 enum {
 	MOVE
 	ROLL
@@ -31,6 +35,16 @@ func _physics_process(delta):
 			pass
 		ATTACK:
 			pass
+
+func _process(delta):
+	var overlap = $ItemDetectArea.get_overlapping_areas() 
+	if overlap.size() != 0 && Input.get_action_strength("ui_accept") != 0:
+		for i in overlap:
+			if i.is_in_group("item"):
+				var x = i.get_groups()
+				x.erase("item")
+				inventory.append(x[0])
+		print(inventory)
 
 func move_state(delta, input_vector):
 	if input_vector != Vector2.ZERO:
