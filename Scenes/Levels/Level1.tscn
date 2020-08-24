@@ -1,4 +1,4 @@
-[gd_scene load_steps=117 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://Sounds/Music/RainstormClean.wav" type="AudioStream" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -15,8 +15,11 @@
 [ext_resource path="res://Sprites/Tiles/NewTealWall.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Temp/whiteImage.png" type="Texture" id=14]
 [ext_resource path="res://Prefabs/ItemPickup.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sprites/LightMask.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/Pickupables.gd" type="Script" id=17]
+[ext_resource path="res://Sprites/Tiles/GriefKnife.png" type="Texture" id=18]
+[ext_resource path="res://Sprites/Tiles/GriefFireplace.png" type="Texture" id=19]
+[ext_resource path="res://Sprites/Tiles/GhostAnim.png" type="Texture" id=20]
+[ext_resource path="res://Sprites/Tiles/GhostDepress.png" type="Texture" id=21]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -1203,11 +1206,83 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 11/shapes = [  ]
 11/z_index = 0
 
-[sub_resource type="CircleShape2D" id=98]
+[sub_resource type="AtlasTexture" id=98]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=99]
+atlas = ExtResource( 19 )
+region = Rect2( 96, 0, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=100]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 96, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=101]
+atlas = ExtResource( 19 )
+region = Rect2( 96, 96, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=102]
+atlas = ExtResource( 19 )
+region = Rect2( 96, 192, 96, 96 )
+
+[sub_resource type="AtlasTexture" id=103]
+atlas = ExtResource( 19 )
+region = Rect2( 0, 192, 96, 96 )
+
+[sub_resource type="SpriteFrames" id=104]
+animations = [ {
+"frames": [ SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 100 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=105]
+extents = Vector2( 49.5942, 39.9685 )
+
+[sub_resource type="CircleShape2D" id=106]
 radius = 35.0
 
-[sub_resource type="CircleShape2D" id=99]
-radius = 32.0
+[sub_resource type="AtlasTexture" id=107]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=110]
+animations = [ {
+"frames": [ SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 108 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="AtlasTexture" id=111]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=112]
+atlas = ExtResource( 21 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=113]
+atlas = ExtResource( 21 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=114]
+animations = [ {
+"frames": [ SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 112 ), SubResource( 113 ), SubResource( 112 ) ],
+"loop": true,
+"name": "default",
+"speed": 2.0
+} ]
 
 [node name="Level1" type="Node2D"]
 __meta__ = {
@@ -1281,6 +1356,27 @@ format = 1
 tile_data = PoolIntArray( 65579, 11, 0, 65580, 11, 0, 65581, 11, 0, 65582, 11, 0, 65583, 11, 0, 65584, 11, 0, 65585, 11, 0, 65586, 11, 0, 65587, 11, 0, 65588, 11, 0, 65589, 11, 0, 65590, 11, 0, 65591, 11, 0, 65592, 11, 0, 65593, 11, 0, 65594, 11, 0, 65595, 11, 0, 65596, 11, 0, 131115, 11, 0, 131116, 11, 0, 131117, 11, 0, 131118, 11, 0, 131119, 11, 0, 131120, 11, 0, 131121, 11, 0, 131122, 11, 0, 131123, 11, 0, 131124, 11, 0, 131125, 11, 0, 131126, 11, 0, 131127, 11, 0, 131128, 11, 0, 131129, 11, 0, 131130, 11, 0, 131131, 11, 0, 131132, 11, 0, 196651, 11, 0, 196652, 11, 0, 196653, 11, 0, 196654, 11, 0, 196655, 11, 0, 196656, 11, 0, 196657, 11, 0, 196658, 11, 0, 196659, 11, 0, 196660, 11, 0, 196661, 11, 0, 196662, 11, 0, 196663, 11, 0, 196664, 11, 0, 196665, 11, 0, 196666, 11, 0, 196667, 11, 0, 196668, 11, 0, 262187, 11, 0, 262188, 11, 0, 262189, 11, 0, 262190, 11, 0, 262191, 11, 0, 262192, 11, 0, 262193, 11, 0, 262194, 11, 0, 262195, 11, 0, 262196, 11, 0, 262197, 11, 0, 262198, 11, 0, 262199, 11, 0, 262200, 11, 0, 262201, 11, 0, 262202, 11, 0, 262203, 11, 0, 262204, 11, 0, 327723, 11, 0, 327724, 11, 0, 327725, 11, 0, 327726, 11, 0, 327727, 11, 0, 327728, 11, 0, 327729, 11, 0, 327730, 11, 0, 327731, 11, 0, 327732, 11, 0, 327733, 11, 0, 327734, 11, 0, 327735, 11, 0, 327736, 11, 0, 327737, 11, 0, 327738, 11, 0, 327739, 11, 0, 327740, 11, 0, 393259, 11, 0, 393260, 11, 0, 393261, 11, 0, 393262, 11, 0, 393263, 11, 0, 393264, 11, 0, 393265, 11, 0, 393266, 11, 0, 393267, 11, 0, 393268, 11, 0, 393269, 11, 0, 393270, 11, 0, 393271, 11, 0, 393272, 11, 0, 393273, 11, 0, 393274, 11, 0, 393275, 11, 0, 393276, 11, 0, 458758, 0, 196608, 458759, 0, 196609, 458760, 0, 196609, 458761, 0, 196609, 458762, 0, 196609, 458763, 0, 196609, 458764, 0, 196609, 458765, 0, 196609, 458766, 0, 196610, 458795, 11, 0, 458796, 11, 0, 458797, 11, 0, 458798, 11, 0, 458799, 11, 0, 458800, 11, 0, 458801, 11, 0, 458802, 11, 0, 458803, 11, 0, 458804, 11, 0, 458805, 11, 0, 458806, 11, 0, 458807, 11, 0, 458808, 11, 0, 458809, 11, 0, 458810, 11, 0, 458811, 11, 0, 458812, 11, 0, 524331, 11, 0, 524332, 11, 0, 524333, 11, 0, 524334, 11, 0, 524335, 11, 0, 524336, 11, 0, 524337, 11, 0, 524338, 11, 0, 524339, 11, 0, 524340, 11, 0, 524341, 11, 0, 524342, 11, 0, 524343, 11, 0, 524344, 11, 0, 524345, 11, 0, 524346, 11, 0, 524347, 11, 0, 524348, 11, 0, 589867, 11, 0, 589868, 11, 0, 589869, 11, 0, 589870, 11, 0, 589871, 11, 0, 589872, 11, 0, 589873, 11, 0, 589874, 11, 0, 589875, 11, 0, 589876, 11, 0, 589877, 11, 0, 589878, 11, 0, 589879, 11, 0, 589880, 11, 0, 589881, 11, 0, 589882, 11, 0, 589883, 11, 0, 589884, 11, 0, 655403, 11, 0, 655404, 11, 0, 655405, 11, 0, 655406, 11, 0, 655407, 11, 0, 655408, 11, 0, 655409, 11, 0, 655410, 11, 0, 655411, 11, 0, 655412, 11, 0, 655413, 11, 0, 655414, 11, 0, 655415, 11, 0, 655416, 11, 0, 655417, 11, 0, 655418, 11, 0, 655419, 11, 0, 655420, 11, 0, 720939, 11, 0, 720940, 11, 0, 720941, 11, 0, 720942, 11, 0, 720943, 11, 0, 720944, 11, 0, 720945, 11, 0, 720946, 11, 0, 720947, 11, 0, 720948, 11, 0, 720949, 11, 0, 720950, 11, 0, 720951, 11, 0, 720952, 11, 0, 720953, 11, 0, 720954, 11, 0, 720955, 11, 0, 720956, 11, 0, 786475, 11, 0, 786476, 11, 0, 786477, 11, 0, 786478, 11, 0, 786479, 11, 0, 786480, 11, 0, 786481, 11, 0, 786482, 11, 0, 786483, 11, 0, 786484, 11, 0, 786485, 11, 0, 786486, 11, 0, 786487, 11, 0, 786488, 11, 0, 786489, 11, 0, 786490, 11, 0, 786491, 11, 0, 786492, 11, 0, 852011, 11, 0, 852012, 11, 0, 852013, 11, 0, 852014, 11, 0, 852015, 11, 0, 852016, 11, 0, 852017, 11, 0, 852018, 11, 0, 852019, 11, 0, 852020, 11, 0, 852021, 11, 0, 852022, 11, 0, 852023, 11, 0, 852024, 11, 0, 852025, 11, 0, 852026, 11, 0, 852027, 11, 0, 852028, 11, 0, 917547, 11, 0, 917548, 11, 0, 917549, 11, 0, 917550, 11, 0, 917551, 11, 0, 917552, 11, 0, 917553, 11, 0, 917554, 11, 0, 917555, 11, 0, 917556, 11, 0, 917557, 11, 0, 917558, 11, 0, 917559, 11, 0, 917560, 11, 0, 917561, 11, 0, 917562, 11, 0, 917563, 11, 0, 917564, 11, 0, 983083, 11, 0, 983084, 11, 0, 983085, 11, 0, 983086, 11, 0, 983087, 11, 0, 983088, 11, 0, 983089, 11, 0, 983090, 11, 0, 983091, 11, 0, 983092, 11, 0, 983093, 11, 0, 983094, 11, 0, 983095, 11, 0, 983096, 11, 0, 983097, 11, 0, 983098, 11, 0, 983099, 11, 0, 983100, 11, 0, 1048619, 11, 0, 1048620, 11, 0, 1048621, 11, 0, 1048622, 11, 0, 1048623, 11, 0, 1048624, 11, 0, 1048625, 11, 0, 1048626, 11, 0, 1048627, 11, 0, 1048628, 11, 0, 1048629, 11, 0, 1048630, 11, 0, 1048631, 11, 0, 1048632, 11, 0, 1048633, 11, 0, 1048634, 11, 0, 1048635, 11, 0, 1048636, 11, 0, 1114155, 11, 0, 1114156, 11, 0, 2490400, 6, 0, 2490401, 3, 0, 2490402, 3, 0, 2490403, 3, 0, 2490404, 3, 0, 2490405, 5, 0, 2555936, 0, 0, 2555937, 10, 0, 2555938, 11, 0, 2555939, 11, 0, 2555940, 10, 0, 2555941, 2, 0, 2621472, 0, 0, 2621473, 10, 0, 2621474, 10, 0, 2621475, 10, 0, 2621476, 11, 0, 2621477, 2, 0, 2687008, 0, 0, 2687009, 8, 0, 2687010, 11, 0, 2687011, 9, 0, 2687012, 9, 0, 2687013, 2, 0, 2752544, 0, 0, 2752545, 11, 0, 2752546, 8, 0, 2752547, 8, 0, 2752548, 9, 0, 2752549, 2, 0, 2818080, 7, 0, 2818081, 1, 0, 2818082, 1, 0, 2818083, 1, 0, 2818084, 1, 0, 2818085, 4, 0 )
 
 [node name="SceneDressing" type="Node" parent="."]
+
+[node name="Fireplace" type="KinematicBody2D" parent="SceneDressing"]
+position = Vector2( -398.585, -189.202 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Fireplace" type="AnimatedSprite" parent="SceneDressing/Fireplace"]
+position = Vector2( 3050.96, 1439.81 )
+frames = SubResource( 104 )
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneDressing/Fireplace"]
+position = Vector2( 3050.96, 1439.81 )
+shape = SubResource( 105 )
+
+[node name="Torch" parent="SceneDressing" instance=ExtResource( 12 )]
+position = Vector2( 2135.92, 1256.34 )
+
+[node name="GrandfatherClock" type="Sprite" parent="SceneDressing"]
+position = Vector2( 3127.35, 1854.61 )
+texture = ExtResource( 8 )
 
 [node name="Pickupables" type="Node" parent="."]
 script = ExtResource( 17 )
@@ -1408,6 +1504,9 @@ position = Vector2( 1863.68, 440.972 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 1870.52, 579.845 )
 
+[node name="Sprite" parent="Pickupables/Keys/BrassKey_Pickup" index="1"]
+frame = 33
+
 [node name="Other" type="Node" parent="Pickupables"]
 
 [node name="Knife_Pickup" parent="Pickupables/Other" groups=[
@@ -1416,6 +1515,7 @@ position = Vector2( 1870.52, 579.845 )
 position = Vector2( 2405.33, 796.01 )
 
 [node name="Sprite" parent="Pickupables/Other/Knife_Pickup" index="1"]
+texture = ExtResource( 18 )
 frame = 3
 
 [node name="ItemPickup2" parent="Pickupables/Other" instance=ExtResource( 15 )]
@@ -1435,59 +1535,55 @@ position = Vector2( 2065.24, 1617.06 )
 
 [node name="Key_Interact" parent="DropoffLocations" instance=ExtResource( 5 )]
 
-[node name="Test" parent="." instance=ExtResource( 4 )]
-position = Vector2( 212, 179 )
+[node name="Ghosts" type="Node" parent="."]
 
-[node name="CollidableShape" parent="Test" index="0"]
-position = Vector2( 135.189, 35.1619 )
-shape = SubResource( 98 )
+[node name="Ghost_Upset" parent="Ghosts" instance=ExtResource( 4 )]
+position = Vector2( 3121.43, 1651.69 )
 
-[node name="Test2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 212, 179 )
+[node name="CollidableShape" parent="Ghosts/Ghost_Upset" index="0"]
+shape = SubResource( 106 )
 
-[node name="CollidableShape" parent="Test2" index="0"]
-position = Vector2( 135.189, 35.1619 )
-shape = SubResource( 98 )
+[node name="AnimatedSprite" parent="Ghosts/Ghost_Upset" index="1"]
+frames = SubResource( 110 )
+playing = true
+
+[node name="Ghost_Grieving" parent="Ghosts" instance=ExtResource( 4 )]
+position = Vector2( 3323.32, 1547.98 )
+
+[node name="CollidableShape" parent="Ghosts/Ghost_Grieving" index="0"]
+shape = SubResource( 106 )
+
+[node name="AnimatedSprite" parent="Ghosts/Ghost_Grieving" index="1"]
+frames = SubResource( 114 )
+frame = 1
+playing = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2539.87, 1282.56 )
 z_index = 10
 
-[node name="Hitbox" parent="." instance=ExtResource( 6 )]
+[node name="Testing" type="Node" parent="."]
 
-[node name="HitboxShape" parent="Hitbox" index="0"]
-position = Vector2( 260, 219 )
-shape = SubResource( 99 )
+[node name="Hitbox" parent="Testing" instance=ExtResource( 6 )]
 
-[node name="Torch" parent="." instance=ExtResource( 12 )]
-
-[node name="GrandfatherClock" type="Sprite" parent="."]
-position = Vector2( 3127.35, 1854.61 )
-texture = ExtResource( 8 )
-
-[node name="BookTaker" parent="." groups=[
+[node name="BookTaker" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 5 )]
+visible = false
 position = Vector2( 2424.86, 1283.26 )
 
-[node name="Sprite" parent="BookTaker" index="1"]
-texture = ExtResource( 16 )
-
-[node name="BookGiver" parent="." groups=[
+[node name="BookGiver" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 15 )]
+visible = false
 position = Vector2( 2655.43, 1280.98 )
 
-[node name="Sprite" parent="BookGiver" index="1"]
-texture = ExtResource( 16 )
-
-[node name="BookGiver2" parent="." groups=[
+[node name="BookGiver2" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 15 )]
+visible = false
 position = Vector2( 2539.37, 1169.14 )
-
-[node name="Sprite" parent="BookGiver2" index="1"]
-texture = ExtResource( 16 )
+[connection signal="ready" from="Pickupables/Keys/BrassKey_Pickup" to="Pickupables" method="_on_BrassKey_Pickup_ready"]
 
 [editable path="Pickupables/Books/Sun_Book_Pickup"]
 
@@ -1529,14 +1625,6 @@ texture = ExtResource( 16 )
 
 [editable path="Pickupables/Other/ItemPickup3"]
 
-[editable path="Test"]
+[editable path="Ghosts/Ghost_Upset"]
 
-[editable path="Test2"]
-
-[editable path="Hitbox"]
-
-[editable path="BookTaker"]
-
-[editable path="BookGiver"]
-
-[editable path="BookGiver2"]
+[editable path="Ghosts/Ghost_Grieving"]
