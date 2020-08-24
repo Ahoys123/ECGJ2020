@@ -1649,8 +1649,25 @@ position = Vector2( 2655.43, 1280.98 )
 [node name="Sprite" parent="BookGiver" index="1"]
 texture = ExtResource( 16 )
 
+<<<<<<< Updated upstream
+=======
+[node name="BookGiver2" parent="." groups=[
+"book",
+] instance=ExtResource( 15 )]
+position = Vector2( 2539.37, 1169.14 )
+
+[node name="Sprite" parent="BookGiver2" index="1"]
+texture = ExtResource( 16 )
+
+[editable path="Test"]
+
+[editable path="Test2"]
+
+>>>>>>> Stashed changes
 [editable path="Hitbox"]
 
 [editable path="BookTaker"]
 
 [editable path="BookGiver"]
+
+[editable path="BookGiver2"]

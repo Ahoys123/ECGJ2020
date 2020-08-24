@@ -60,6 +60,7 @@ func load_level(type:String ,name:String):
 	
 	if type == "Level":
 		get_tree().root.get_child(1).get_node("Player").connect("interaction", self, "onInteraction")
+		get_tree().root.get_child(1).get_node("Player").connect("invComm", self, "onInvComm")
 	return true
 	
 func connect_on_load():
@@ -77,6 +78,9 @@ func connect_on_load():
 func onInteraction(success):
 	get_tree().call_group("interact", "onInteracted", success)
 	print(success)
+	
+func onInvComm(id, action):
+	get_tree().call_group("follower", "onInvComm", id, action)
 
 #ToDo - Alter function to take into account load states
 func on_init_game():
