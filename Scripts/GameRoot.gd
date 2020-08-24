@@ -20,7 +20,7 @@ func init():
 		#connect game initialization to button press
 		#todo: remove hardcode of mainmenu, as it's likely to break
 		mainmenu = get_tree().root.get_child(1)
-		print(mainmenu.connect("init_game_start", self, "on_init_game"))
+		mainmenu.connect("init_game_start", self, "on_init_game")
 	#Otherwise, load level (useful for testing)
 	else:
 		load_level("Level", "Level1")
@@ -53,8 +53,6 @@ func load_level(type:String ,name:String):
 	else:
 		return
 	
-	print(lvl_path_full)	
-	
 	var lvl = load(lvl_path_full).instance()
 	root.add_child(lvl)
 	
@@ -84,7 +82,6 @@ func onInvComm(id, action):
 
 #ToDo - Alter function to take into account load states
 func on_init_game():
-	print ("signal to start game received")
 	load_level("Level","Level1")
 	
 
