@@ -27,8 +27,10 @@ position = Vector2( 0, 0 )
 [node name="Light2D" type="Light2D" parent="."]
 position = Vector2( 0.52972, -9.53674e-07 )
 scale = Vector2( 1.87185, 1.52973 )
+z_index = 9
 texture = ExtResource( 3 )
 texture_scale = 0.75
+range_item_cull_mask = 3079
 
 [node name="Sprite" type="Sprite" parent="."]
 light_mask = 0

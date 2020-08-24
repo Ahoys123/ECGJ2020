@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export var ACCELERATION = 1000
-export var MAX_SPEED = 250
+export var MAX_SPEED = 150
 #export var ROLL_SPEED = 120 #if we decide to use rolling, this dictates roll speed
 export var FRICTION = 1000
 
