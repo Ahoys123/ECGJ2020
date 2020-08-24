@@ -1408,6 +1408,9 @@ position = Vector2( 1863.68, 440.972 )
 ] instance=ExtResource( 15 )]
 position = Vector2( 1870.52, 579.845 )
 
+[node name="Sprite" parent="Pickupables/Keys/BrassKey_Pickup" index="1"]
+frame = 33
+
 [node name="Other" type="Node" parent="Pickupables"]
 
 [node name="Knife_Pickup" parent="Pickupables/Other" groups=[
@@ -1488,6 +1491,7 @@ position = Vector2( 2539.37, 1169.14 )
 
 [node name="Sprite" parent="BookGiver2" index="1"]
 texture = ExtResource( 16 )
+[connection signal="ready" from="Pickupables/Keys/BrassKey_Pickup" to="Pickupables" method="_on_BrassKey_Pickup_ready"]
 
 [editable path="Pickupables/Books/Sun_Book_Pickup"]
 
