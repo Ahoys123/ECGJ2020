@@ -1,4 +1,4 @@
-[gd_scene load_steps=136 format=2]
+[gd_scene load_steps=135 format=2]
 
 [ext_resource path="res://Sounds/Music/RainstormClean.wav" type="AudioStream" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -15,7 +15,6 @@
 [ext_resource path="res://Sprites/Tiles/NewTealWall.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Temp/whiteImage.png" type="Texture" id=14]
 [ext_resource path="res://Prefabs/ItemPickup.tscn" type="PackedScene" id=15]
-[ext_resource path="res://Sprites/LightMask.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/Pickupables.gd" type="Script" id=17]
 [ext_resource path="res://Sprites/Tiles/GriefKnife.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Tiles/GriefFireplace.png" type="Texture" id=19]
@@ -1207,39 +1206,42 @@ points = PoolVector2Array( 0, 0, 128, 0, 128, 128, 0, 128 )
 11/shapes = [  ]
 11/z_index = 0
 
-[sub_resource type="AtlasTexture" id=100]
+[sub_resource type="AtlasTexture" id=98]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 0, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=101]
+[sub_resource type="AtlasTexture" id=99]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 0, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=102]
+[sub_resource type="AtlasTexture" id=100]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 96, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=103]
+[sub_resource type="AtlasTexture" id=101]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 96, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=104]
+[sub_resource type="AtlasTexture" id=102]
 atlas = ExtResource( 19 )
 region = Rect2( 96, 192, 96, 96 )
 
-[sub_resource type="AtlasTexture" id=105]
+[sub_resource type="AtlasTexture" id=103]
 atlas = ExtResource( 19 )
 region = Rect2( 0, 192, 96, 96 )
 
-[sub_resource type="SpriteFrames" id=106]
+[sub_resource type="SpriteFrames" id=104]
 animations = [ {
-"frames": [ SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 104 ), SubResource( 105 ), SubResource( 102 ) ],
+"frames": [ SubResource( 98 ), SubResource( 99 ), SubResource( 100 ), SubResource( 101 ), SubResource( 102 ), SubResource( 103 ), SubResource( 100 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="CircleShape2D" id=98]
+[sub_resource type="RectangleShape2D" id=105]
+extents = Vector2( 49.5942, 39.9685 )
+
+[sub_resource type="CircleShape2D" id=106]
 radius = 35.0
 
 [sub_resource type="AtlasTexture" id=107]
@@ -1281,9 +1283,6 @@ animations = [ {
 "name": "default",
 "speed": 2.0
 } ]
-
-[sub_resource type="CircleShape2D" id=99]
-radius = 32.0
 
 [node name="Level1" type="Node2D"]
 __meta__ = {
@@ -1358,10 +1357,26 @@ tile_data = PoolIntArray( 65579, 11, 0, 65580, 11, 0, 65581, 11, 0, 65582, 11, 0
 
 [node name="SceneDressing" type="Node" parent="."]
 
-[node name="Fireplace" type="AnimatedSprite" parent="SceneDressing"]
+[node name="Fireplace" type="KinematicBody2D" parent="SceneDressing"]
+position = Vector2( -398.585, -189.202 )
+collision_layer = 2
+collision_mask = 0
+
+[node name="Fireplace" type="AnimatedSprite" parent="SceneDressing/Fireplace"]
 position = Vector2( 3050.96, 1439.81 )
-frames = SubResource( 106 )
+frames = SubResource( 104 )
 playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SceneDressing/Fireplace"]
+position = Vector2( 3050.96, 1439.81 )
+shape = SubResource( 105 )
+
+[node name="Torch" parent="SceneDressing" instance=ExtResource( 12 )]
+position = Vector2( 2135.92, 1256.34 )
+
+[node name="GrandfatherClock" type="Sprite" parent="SceneDressing"]
+position = Vector2( 3127.35, 1854.61 )
+texture = ExtResource( 8 )
 
 [node name="Pickupables" type="Node" parent="."]
 script = ExtResource( 17 )
@@ -1520,70 +1535,54 @@ position = Vector2( 2065.24, 1617.06 )
 
 [node name="Key_Interact" parent="DropoffLocations" instance=ExtResource( 5 )]
 
-[node name="Ghost_Upset" parent="." instance=ExtResource( 4 )]
+[node name="Ghosts" type="Node" parent="."]
+
+[node name="Ghost_Upset" parent="Ghosts" instance=ExtResource( 4 )]
 position = Vector2( 3121.43, 1651.69 )
 
-[node name="CollidableShape" parent="Ghost_Upset" index="0"]
-shape = SubResource( 98 )
+[node name="CollidableShape" parent="Ghosts/Ghost_Upset" index="0"]
+shape = SubResource( 106 )
 
-[node name="AnimatedSprite" parent="Ghost_Upset" index="1"]
+[node name="AnimatedSprite" parent="Ghosts/Ghost_Upset" index="1"]
 frames = SubResource( 110 )
-frame = 2
 playing = true
 
-[node name="Ghost_Grieving" parent="." instance=ExtResource( 4 )]
+[node name="Ghost_Grieving" parent="Ghosts" instance=ExtResource( 4 )]
 position = Vector2( 3323.32, 1547.98 )
 
-[node name="CollidableShape" parent="Ghost_Grieving" index="0"]
-shape = SubResource( 98 )
+[node name="CollidableShape" parent="Ghosts/Ghost_Grieving" index="0"]
+shape = SubResource( 106 )
 
-[node name="AnimatedSprite" parent="Ghost_Grieving" index="1"]
+[node name="AnimatedSprite" parent="Ghosts/Ghost_Grieving" index="1"]
 frames = SubResource( 114 )
+frame = 1
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 2539.87, 1282.56 )
 z_index = 10
 
-[node name="Hitbox" parent="." instance=ExtResource( 6 )]
+[node name="Testing" type="Node" parent="."]
 
-[node name="HitboxShape" parent="Hitbox" index="0"]
-position = Vector2( 260, 219 )
-shape = SubResource( 99 )
+[node name="Hitbox" parent="Testing" instance=ExtResource( 6 )]
 
-[node name="Torch" parent="." instance=ExtResource( 12 )]
-position = Vector2( 2135.92, 1256.34 )
-
-[node name="GrandfatherClock" type="Sprite" parent="."]
-position = Vector2( 3127.35, 1854.61 )
-texture = ExtResource( 8 )
-
-[node name="BookTaker" parent="." groups=[
+[node name="BookTaker" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 5 )]
 visible = false
 position = Vector2( 2424.86, 1283.26 )
 
-[node name="Sprite" parent="BookTaker" index="1"]
-texture = ExtResource( 16 )
-
-[node name="BookGiver" parent="." groups=[
+[node name="BookGiver" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 2655.43, 1280.98 )
 
-[node name="Sprite" parent="BookGiver" index="1"]
-texture = ExtResource( 16 )
-
-[node name="BookGiver2" parent="." groups=[
+[node name="BookGiver2" parent="Testing" groups=[
 "book",
 ] instance=ExtResource( 15 )]
 visible = false
 position = Vector2( 2539.37, 1169.14 )
-
-[node name="Sprite" parent="BookGiver2" index="1"]
-texture = ExtResource( 16 )
 [connection signal="ready" from="Pickupables/Keys/BrassKey_Pickup" to="Pickupables" method="_on_BrassKey_Pickup_ready"]
 
 [editable path="Pickupables/Books/Sun_Book_Pickup"]
@@ -1626,14 +1625,6 @@ texture = ExtResource( 16 )
 
 [editable path="Pickupables/Other/ItemPickup3"]
 
-[editable path="Ghost_Upset"]
+[editable path="Ghosts/Ghost_Upset"]
 
-[editable path="Ghost_Grieving"]
-
-[editable path="Hitbox"]
-
-[editable path="BookTaker"]
-
-[editable path="BookGiver"]
-
-[editable path="BookGiver2"]
+[editable path="Ghosts/Ghost_Grieving"]
