@@ -8,9 +8,14 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Sprite",
+"class": "InteractableItem",
+"language": "GDScript",
+"path": "res://Scenes/Levels/GhostInt.gd"
+} ]
 _global_script_class_icons={
-
+"InteractableItem": ""
 }
 
 [application]
