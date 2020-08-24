@@ -19,7 +19,14 @@ enum {
 
 var state = MOVE
 var velocity = Vector2.ZERO
+
+onready var animationPlayer = $AnimationPlayer
+onready var animationTree = $AnimationTree
+onready var animationState = animationTree.get("parameters/playback")
 #var roll_vector=Vector2.DOWN #if we decide to use rolling, this dictates facing
+
+func _ready():
+	animationTree.active = true
 
 func handle_input():
 	var input_vector = Vector2.ZERO
@@ -75,8 +82,11 @@ func _process(delta):
 func move_state(delta, input_vector):
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED, ACCELERATION * delta)
+		animationTree.set("parameters/Move/blend_position", input_vector)
+		animationState.travel("Move")
 	else:
 		velocity = velocity.move_toward(Vector2.ZERO, FRICTION * delta)
+		animationState.travel("IdleDown")
 	move()
 	
 func move():
