@@ -11,9 +11,11 @@ radius = 64.0
 collision_layer = 8
 collision_mask = 0
 script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CanPickupRange" type="CollisionShape2D" parent="."]
-position = Vector2( 2666.73, 1279.54 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]

@@ -1,4 +1,6 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/Interacting.gd" type="Script" id=1]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 64.0
@@ -8,6 +10,10 @@ radius = 64.0
 ]]
 collision_layer = 8
 collision_mask = 0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
 
 [node name="CanInteractRange" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )

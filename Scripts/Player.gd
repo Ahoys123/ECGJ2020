@@ -7,6 +7,8 @@ export var FRICTION = 1000
 
 var inventory = []
 var item = null
+signal interaction (success)
+signal itemOffset (total)
 
 
 enum {
@@ -43,16 +45,21 @@ func _process(delta):
 			if i.is_in_group("item"):
 				var x = i.get_groups()
 				x.erase("item")
+				x.erase("idle_process")
+				print(x)
 				inventory.append(x[0])
 				print("added" + x[0])
 			elif i.is_in_group("interact"):
 				var x = i.get_groups()
 				x.erase("interact")
+				x.erase("idle_process")
 				if x[0] in inventory:
 					inventory.erase(x[0])
 					print("removed " + x[0])
+					emit_signal("interaction", true)
 				else:
 					print("cannot remove; not in inventory!")
+					emit_signal("interaction", false)
 	elif overlap.size() == 0 && Input.is_action_just_pressed("ui_accept"):
 		print("nothing to interact with!")
 		# do something here if you want something to happen when button pressed but no action can be performed

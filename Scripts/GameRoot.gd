@@ -57,6 +57,9 @@ func load_level(type:String ,name:String):
 	
 	var lvl = load(lvl_path_full).instance()
 	root.add_child(lvl)
+	
+	if type == "Level":
+		get_tree().root.get_child(1).get_node("Player").connect("interaction", self, "onInteraction")
 	return true
 	
 func connect_on_load():
@@ -71,6 +74,9 @@ func connect_on_load():
 	#
 	return
 
+func onInteraction(success):
+	get_tree().call_group("interact", "onInteracted", success)
+	print(success)
 
 #ToDo - Alter function to take into account load states
 func on_init_game():
