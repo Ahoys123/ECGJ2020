@@ -1,4 +1,4 @@
-[gd_scene load_steps=135 format=2]
+[gd_scene load_steps=142 format=2]
 
 [ext_resource path="res://Sounds/Music/RainstormClean.wav" type="AudioStream" id=1]
 [ext_resource path="res://Prefabs/Player.tscn" type="PackedScene" id=2]
@@ -15,11 +15,13 @@
 [ext_resource path="res://Sprites/Tiles/NewTealWall.png" type="Texture" id=13]
 [ext_resource path="res://Sprites/Temp/whiteImage.png" type="Texture" id=14]
 [ext_resource path="res://Prefabs/ItemPickup.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scripts/Ghost.gd" type="Script" id=16]
 [ext_resource path="res://Scripts/Pickupables.gd" type="Script" id=17]
 [ext_resource path="res://Sprites/Tiles/GriefKnife.png" type="Texture" id=18]
 [ext_resource path="res://Sprites/Tiles/GriefFireplace.png" type="Texture" id=19]
 [ext_resource path="res://Sprites/Tiles/GhostAnim.png" type="Texture" id=20]
 [ext_resource path="res://Sprites/Tiles/GhostDepress.png" type="Texture" id=21]
+[ext_resource path="res://Prefabs/WanderController.tscn" type="PackedScene" id=22]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 0, 0, 64, 0, 64, 64, 0, 64 )
@@ -1242,43 +1244,65 @@ animations = [ {
 extents = Vector2( 49.5942, 39.9685 )
 
 [sub_resource type="CircleShape2D" id=106]
-radius = 35.0
 
-[sub_resource type="AtlasTexture" id=107]
+[sub_resource type="AtlasTexture" id=116]
 atlas = ExtResource( 20 )
 region = Rect2( 0, 0, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=108]
+[sub_resource type="AtlasTexture" id=117]
 atlas = ExtResource( 20 )
 region = Rect2( 0, 64, 64, 64 )
 
-[sub_resource type="AtlasTexture" id=109]
+[sub_resource type="AtlasTexture" id=118]
 atlas = ExtResource( 20 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=110]
+[sub_resource type="SpriteFrames" id=119]
 animations = [ {
-"frames": [ SubResource( 107 ), SubResource( 108 ), SubResource( 109 ), SubResource( 108 ) ],
+"frames": [ SubResource( 116 ), SubResource( 117 ), SubResource( 118 ), SubResource( 117 ) ],
 "loop": true,
 "name": "default",
 "speed": 5.0
 } ]
 
-[sub_resource type="AtlasTexture" id=111]
-atlas = ExtResource( 21 )
+[sub_resource type="CircleShape2D" id=107]
+radius = 35.0
+
+[sub_resource type="AtlasTexture" id=108]
+atlas = ExtResource( 20 )
 region = Rect2( 0, 0, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=109]
+atlas = ExtResource( 20 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=110]
+atlas = ExtResource( 20 )
+region = Rect2( 64, 0, 64, 64 )
+
+[sub_resource type="SpriteFrames" id=111]
+animations = [ {
+"frames": [ SubResource( 108 ), SubResource( 109 ), SubResource( 110 ), SubResource( 109 ) ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
 
 [sub_resource type="AtlasTexture" id=112]
 atlas = ExtResource( 21 )
-region = Rect2( 0, 64, 64, 64 )
+region = Rect2( 0, 0, 64, 64 )
 
 [sub_resource type="AtlasTexture" id=113]
 atlas = ExtResource( 21 )
+region = Rect2( 0, 64, 64, 64 )
+
+[sub_resource type="AtlasTexture" id=114]
+atlas = ExtResource( 21 )
 region = Rect2( 64, 0, 64, 64 )
 
-[sub_resource type="SpriteFrames" id=114]
+[sub_resource type="SpriteFrames" id=115]
 animations = [ {
-"frames": [ SubResource( 111 ), SubResource( 112 ), SubResource( 113 ), SubResource( 112 ), SubResource( 113 ), SubResource( 112 ) ],
+"frames": [ SubResource( 112 ), SubResource( 113 ), SubResource( 114 ), SubResource( 113 ), SubResource( 114 ), SubResource( 113 ) ],
 "loop": true,
 "name": "default",
 "speed": 2.0
@@ -1519,8 +1543,10 @@ texture = ExtResource( 18 )
 frame = 3
 
 [node name="ItemPickup2" parent="Pickupables/Other" instance=ExtResource( 15 )]
+visible = false
 
 [node name="ItemPickup3" parent="Pickupables/Other" instance=ExtResource( 15 )]
+visible = false
 
 [node name="DropoffLocations" type="Node" parent="."]
 
@@ -1537,25 +1563,51 @@ position = Vector2( 2065.24, 1617.06 )
 
 [node name="Ghosts" type="Node" parent="."]
 
+[node name="Ghost" type="KinematicBody2D" parent="Ghosts"]
+position = Vector2( -655.807, 38.6703 )
+script = ExtResource( 16 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="PlayerDetectionZone" type="Area2D" parent="Ghosts/Ghost"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghosts/Ghost/PlayerDetectionZone"]
+modulate = Color( 0.647059, 0.278431, 0.278431, 1 )
+shape = SubResource( 106 )
+
+[node name="Ghost_Collidable" parent="Ghosts/Ghost" instance=ExtResource( 4 )]
+position = Vector2( 3080.42, 1367.43 )
+
+[node name="AnimatedSprite" parent="Ghosts/Ghost/Ghost_Collidable" index="1"]
+frames = SubResource( 119 )
+frame = 3
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ghosts/Ghost"]
+
+[node name="WanderController" parent="Ghosts/Ghost" instance=ExtResource( 22 )]
+
 [node name="Ghost_Upset" parent="Ghosts" instance=ExtResource( 4 )]
 position = Vector2( 3121.43, 1651.69 )
 
 [node name="CollidableShape" parent="Ghosts/Ghost_Upset" index="0"]
-shape = SubResource( 106 )
+shape = SubResource( 107 )
 
 [node name="AnimatedSprite" parent="Ghosts/Ghost_Upset" index="1"]
-frames = SubResource( 110 )
+frames = SubResource( 111 )
+frame = 1
 playing = true
 
 [node name="Ghost_Grieving" parent="Ghosts" instance=ExtResource( 4 )]
 position = Vector2( 3323.32, 1547.98 )
 
 [node name="CollidableShape" parent="Ghosts/Ghost_Grieving" index="0"]
-shape = SubResource( 106 )
+shape = SubResource( 107 )
 
 [node name="AnimatedSprite" parent="Ghosts/Ghost_Grieving" index="1"]
-frames = SubResource( 114 )
-frame = 1
+frames = SubResource( 115 )
+frame = 3
 playing = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
@@ -1624,6 +1676,8 @@ position = Vector2( 2539.37, 1169.14 )
 [editable path="Pickupables/Other/ItemPickup2"]
 
 [editable path="Pickupables/Other/ItemPickup3"]
+
+[editable path="Ghosts/Ghost/Ghost_Collidable"]
 
 [editable path="Ghosts/Ghost_Upset"]
 
