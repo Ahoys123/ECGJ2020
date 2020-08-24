@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/The_Humble_Item_Pack.png-c86882087bb5d46f87d525d99c707a34.stex"
+path="res://.import/Furniture_SpriteSheet.png-4049a96c7fbea608ac872b0662374f74.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/The_Humble_Item_Pack.png"
-dest_files=[ "res://.import/The_Humble_Item_Pack.png-c86882087bb5d46f87d525d99c707a34.stex" ]
+source_file="res://Sprites/Tiles/Furniture_SpriteSheet.png"
+dest_files=[ "res://.import/Furniture_SpriteSheet.png-4049a96c7fbea608ac872b0662374f74.stex" ]
 
 [params]
 

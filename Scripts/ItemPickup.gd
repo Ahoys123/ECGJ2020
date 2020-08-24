@@ -2,7 +2,7 @@ extends Area2D
 
 var following = false
 var followNumb = 0
-var offsetMultiplier = 100
+var offsetMultiplier = 20
 var followNode = null
 export var hasLightsource = true
 
