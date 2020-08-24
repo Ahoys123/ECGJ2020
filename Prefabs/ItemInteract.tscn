@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 64.0
+
+[node name="ItemInteract" type="Area2D" groups=[
+"interact",
+]]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CanInteractRange" type="CollisionShape2D" parent="."]
+shape = SubResource( 1 )
+
+[node name="Sprite" type="Sprite" parent="."]
