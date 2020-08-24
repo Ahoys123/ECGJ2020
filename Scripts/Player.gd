@@ -38,13 +38,25 @@ func _physics_process(delta):
 
 func _process(delta):
 	var overlap = $ItemDetectArea.get_overlapping_areas() 
-	if overlap.size() != 0 && Input.get_action_strength("ui_accept") != 0:
+	if overlap.size() != 0 && Input.is_action_just_pressed("ui_accept"):
 		for i in overlap:
 			if i.is_in_group("item"):
 				var x = i.get_groups()
 				x.erase("item")
 				inventory.append(x[0])
-		print(inventory)
+				print("added" + x[0])
+			elif i.is_in_group("interact"):
+				var x = i.get_groups()
+				x.erase("interact")
+				if x[0] in inventory:
+					inventory.erase(x[0])
+					print("removed " + x[0])
+				else:
+					print("cannot remove; not in inventory!")
+	elif overlap.size() == 0 && Input.is_action_just_pressed("ui_accept"):
+		print("nothing to interact with!")
+		# do something here if you want something to happen when button pressed but no action can be performed
+
 
 func move_state(delta, input_vector):
 	if input_vector != Vector2.ZERO:
