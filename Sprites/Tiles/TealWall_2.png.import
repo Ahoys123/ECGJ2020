@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new_wall_stencil_clone.png-cd0c357da616e9776eea1a22934ccf60.stex"
+path="res://.import/TealWall_2.png-8756986c62f07ad8e5874809b7e7a230.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Tiles/new_wall_stencil_clone.png"
-dest_files=[ "res://.import/new_wall_stencil_clone.png-cd0c357da616e9776eea1a22934ccf60.stex" ]
+source_file="res://Sprites/Tiles/TealWall_2.png"
+dest_files=[ "res://.import/TealWall_2.png-8756986c62f07ad8e5874809b7e7a230.stex" ]
 
 [params]
 
