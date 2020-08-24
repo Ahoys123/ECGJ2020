@@ -859,10 +859,106 @@ tile_data = PoolIntArray( 65579, 11, 0, 65580, 11, 0, 65581, 11, 0, 65582, 11, 0
 
 [node name="Pickupables" type="Node" parent="."]
 
-[node name="Sun_Book_Pickup" parent="Pickupables" groups=[
+[node name="Books" type="Node" parent="Pickupables"]
+
+[node name="Sun_Book_Pickup" parent="Pickupables/Books" groups=[
 "book",
 ] instance=ExtResource( 15 )]
 position = Vector2( 2397.74, 1617.15 )
+
+[node name="Skull_Book_Pickup" parent="Pickupables/Books" groups=[
+"book",
+] instance=ExtResource( 15 )]
+position = Vector2( 2533.83, 1618.28 )
+
+[node name="Leather_Journal_Pickup" parent="Pickupables/Books" groups=[
+"book",
+] instance=ExtResource( 15 )]
+position = Vector2( 2646.03, 1763.42 )
+
+[node name="Cookbook_Pickup" parent="Pickupables/Books" groups=[
+"book",
+] instance=ExtResource( 15 )]
+position = Vector2( 2483.16, 1763.28 )
+
+[node name="History_Book_Pickup" parent="Pickupables/Books" groups=[
+"book",
+] instance=ExtResource( 15 )]
+position = Vector2( 2678.6, 1628.91 )
+
+[node name="TorchParts" type="Node" parent="Pickupables"]
+
+[node name="Log_Pickup" parent="Pickupables/TorchParts" groups=[
+"torch",
+] instance=ExtResource( 15 )]
+position = Vector2( 1516.86, 1438.84 )
+
+[node name="TorchBody_Pickup" parent="Pickupables/TorchParts" groups=[
+"torch",
+] instance=ExtResource( 15 )]
+position = Vector2( 1367.46, 1442.53 )
+
+[node name="Coal_Pickup" parent="Pickupables/TorchParts" groups=[
+"torch",
+] instance=ExtResource( 15 )]
+position = Vector2( 1445.06, 1559.67 )
+
+[node name="Flint_Pickup" parent="Pickupables/TorchParts" groups=[
+"torch",
+] instance=ExtResource( 15 )]
+position = Vector2( 1589.28, 1568.72 )
+
+[node name="Heirlooms" type="Node" parent="Pickupables"]
+
+[node name="Will_Pickup" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2377.58, 188.775 )
+
+[node name="WeddingBand_Pickup" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2233.6, 188.361 )
+
+[node name="Mystery_Pickup" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2085, 194 )
+
+[node name="LostMedicine_Pickup" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2157.87, 308.841 )
+
+[node name="StolenValor_Pickup" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2308.79, 310.922 )
+
+[node name="StarSaphire" parent="Pickupables/Heirlooms" groups=[
+"heirloom",
+] instance=ExtResource( 15 )]
+position = Vector2( 2236.48, 426.631 )
+
+[node name="Keys" type="Node" parent="Pickupables"]
+
+[node name="IronKey_Pickup" parent="Pickupables/Keys" groups=[
+"key",
+] instance=ExtResource( 15 )]
+position = Vector2( 1863.68, 440.972 )
+
+[node name="BrassKey_Pickup" parent="Pickupables/Keys" groups=[
+"key",
+] instance=ExtResource( 15 )]
+position = Vector2( 1870.52, 579.845 )
+
+[node name="Other" type="Node" parent="Pickupables"]
+
+[node name="ItemPickup" parent="Pickupables/Other" instance=ExtResource( 15 )]
+
+[node name="ItemPickup2" parent="Pickupables/Other" instance=ExtResource( 15 )]
+
+[node name="ItemPickup3" parent="Pickupables/Other" instance=ExtResource( 15 )]
 
 [node name="DropoffLocations" type="Node" parent="."]
 
@@ -870,6 +966,12 @@ position = Vector2( 2397.74, 1617.15 )
 "book",
 ] instance=ExtResource( 5 )]
 position = Vector2( 2065.24, 1617.06 )
+
+[node name="Torch_Interact" parent="DropoffLocations" instance=ExtResource( 5 )]
+
+[node name="Heirloom_Interact" parent="DropoffLocations" instance=ExtResource( 5 )]
+
+[node name="Key_Interact" parent="DropoffLocations" instance=ExtResource( 5 )]
 
 [node name="Test" parent="." instance=ExtResource( 4 )]
 position = Vector2( 212, 179 )
