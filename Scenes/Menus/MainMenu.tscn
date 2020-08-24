@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/Menus/MainMenu.gd" type="Script" id=1]
+[ext_resource path="res://Sounds/Music/TitleCard.wav" type="AudioStream" id=2]
 
 [node name="MainMenu" type="Control"]
 margin_right = 320.0
@@ -41,4 +42,10 @@ text = "Play Game"
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="Music" type="Node" parent="."]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="Music"]
+stream = ExtResource( 2 )
+autoplay = true
 [connection signal="pressed" from="ColorRect/Button" to="." method="_on_Button_pressed"]

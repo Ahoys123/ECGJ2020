@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/RainstormClean.wav-612d654b54099a27c2bfa91872978b9f.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/RainstormClean.wav"
+dest_files=[ "res://.import/RainstormClean.wav-612d654b54099a27c2bfa91872978b9f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

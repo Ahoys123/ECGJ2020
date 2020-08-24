@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/HouseTheme.wav-cc713baa2e5f30776227638205f0c54d.sample"
+
+[deps]
+
+source_file="res://Sounds/Music/HouseTheme.wav"
+dest_files=[ "res://.import/HouseTheme.wav-cc713baa2e5f30776227638205f0c54d.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
